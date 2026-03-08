@@ -9,6 +9,19 @@
     <link rel="icon" href="favicon-32.png" type="image/png" />
     <link rel="apple-touch-icon" href="favicon-180.png" />
 
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="vibefile.dev — Makefile for the Vibe Coding Era" />
+    <meta property="og:description" content="Declare what you want. Let the machine figure out how. The task runner for humans who think in plain english." />
+    <meta property="og:image" content="https://vibefile.dev/og-image.png" />
+    <meta property="og:url" content="https://vibefile.dev" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="vibefile.dev — Makefile for the Vibe Coding Era" />
+    <meta name="twitter:description" content="Declare what you want. Let the machine figure out how. The task runner for humans who think in plain english." />
+    <meta name="twitter:image" content="https://vibefile.dev/og-image.png" />
+
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -94,13 +107,8 @@
         }
 
         @keyframes glow-drift {
-            from {
-                transform: translate(0, 0);
-            }
-
-            to {
-                transform: translate(60px, 80px);
-            }
+            from { transform: translate(0, 0); }
+            to   { transform: translate(60px, 80px); }
         }
 
         /* ── HEADER ── */
@@ -157,6 +165,18 @@
             background: var(--accent-dim);
         }
 
+        nav a.discord {
+            color: #7289da;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        nav a.discord:hover {
+            color: #8fa4f3;
+            background: rgba(114, 137, 218, 0.1);
+        }
+
         /* ── TERMINAL BREADCRUMB ── */
         .breadcrumb {
             position: relative;
@@ -190,15 +210,8 @@
         }
 
         @keyframes blink {
-
-            0%,
-            100% {
-                opacity: 1
-            }
-
-            50% {
-                opacity: 0
-            }
+            0%, 100% { opacity: 1 }
+            50%       { opacity: 0 }
         }
 
         /* ── HERO ── */
@@ -265,6 +278,61 @@
             color: #ffd57e;
         }
 
+        /* ── HERO CTA BUTTONS ── */
+        .hero-cta {
+            margin-top: 36px;
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 20px;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 0.02em;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: all 0.15s;
+        }
+
+        .btn-primary {
+            background: var(--accent);
+            color: #0b0c0e;
+        }
+
+        .btn-primary:hover {
+            background: #caff72;
+            transform: translateY(-1px);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--text2);
+            border: 1px solid var(--border2);
+        }
+
+        .btn-secondary:hover {
+            color: var(--accent);
+            border-color: var(--accent);
+            background: var(--accent-dim);
+        }
+
+        .btn-discord {
+            background: transparent;
+            color: #7289da;
+            border: 1px solid rgba(114, 137, 218, 0.3);
+        }
+
+        .btn-discord:hover {
+            background: rgba(114, 137, 218, 0.1);
+            border-color: #7289da;
+            transform: translateY(-1px);
+        }
 
         /* ── QUOTE ── */
         .quote-section {
@@ -418,17 +486,9 @@
             border-radius: 50%;
         }
 
-        .dot-r {
-            background: #ff5f57;
-        }
-
-        .dot-y {
-            background: #febc2e;
-        }
-
-        .dot-g {
-            background: #28c840;
-        }
+        .dot-r { background: #ff5f57; }
+        .dot-y { background: #febc2e; }
+        .dot-g { background: #28c840; }
 
         .code-fname {
             font-size: 0.7rem;
@@ -451,30 +511,12 @@
         }
 
         /* syntax */
-        .cm {
-            color: var(--muted);
-            font-style: italic;
-        }
-
-        .ck {
-            color: var(--accent2);
-        }
-
-        .cv {
-            color: var(--accent);
-        }
-
-        .cs {
-            color: #ffd57e;
-        }
-
-        .cx {
-            color: #ff8fb1;
-        }
-
-        .cn {
-            color: var(--text2);
-        }
+        .cm { color: var(--muted); font-style: italic; }
+        .ck { color: var(--accent2); }
+        .cv { color: var(--accent); }
+        .cs { color: #ffd57e; }
+        .cx { color: #ff8fb1; }
+        .cn { color: var(--text2); }
 
         /* ── PILLARS ── */
         .pillars {
@@ -496,6 +538,7 @@
         .pillar {
             background: var(--surface);
             padding: 32px 28px;
+            transition: background 0.15s;
         }
 
         .pillar:hover {
@@ -550,28 +593,43 @@
         }
 
         footer .f-right {
+            display: flex;
+            align-items: center;
+            gap: 16px;
             font-size: 0.68rem;
             color: var(--muted);
-            font-style: italic;
             font-family: 'Fragment Mono', monospace;
+        }
+
+        footer .f-right a {
+            color: var(--muted);
+            text-decoration: none;
+            transition: color 0.15s;
+        }
+
+        footer .f-right a:hover {
+            color: var(--accent);
+        }
+
+        footer .f-right a.f-discord {
+            color: #7289da;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        footer .f-right a.f-discord:hover {
+            color: #8fa4f3;
         }
 
         /* ── ANIMATIONS ── */
         @keyframes fade-up {
-            from {
-                opacity: 0;
-                transform: translateY(16px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+            from { opacity: 0; transform: translateY(16px); }
+            to   { opacity: 1; transform: translateY(0); }
         }
 
         /* ── RESPONSIVE ── */
         @media (max-width: 768px) {
-
             header,
             .hero,
             .install-strip,
@@ -588,9 +646,7 @@
                 padding-right: 20px;
             }
 
-            nav {
-                display: none;
-            }
+            nav { display: none; }
 
             .code-section {
                 grid-template-columns: 1fr;
@@ -601,9 +657,10 @@
                 padding: 0 20px 80px;
             }
 
-            h1 {
-                font-size: 2.6rem;
-            }
+            h1 { font-size: 2.6rem; }
+
+            .hero-cta { flex-direction: column; }
+            .btn { justify-content: center; }
         }
     </style>
 </head>
@@ -618,16 +675,21 @@
             <span class="name">vibefile</span><span class="ext">.dev</span>
         </div>
         <nav>
-            <a href="https://github.com/vibefile-dev">~/docs</a>
+            <a href="idea.html">~/idea</a>
             <a href="https://github.com/vibefile-dev">~/github</a>
-            <a href="https://github.com/vibefile-dev">~/spec</a>
+            <a href="https://discord.gg/3TsMMvK8tV" class="discord">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057c.003.027.015.054.03.07a19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028c.462-.63.874-1.295 1.226-1.994a.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03z"/>
+                </svg>
+                ~/discord
+            </a>
         </nav>
     </header>
 
     <!-- TERMINAL BREADCRUMB -->
     <div class="breadcrumb">
         <span class="prompt">❯</span>
-        <span class="cmd">cat vibefile.yaml | vibe run ship</span>
+        <span class="cmd">vibe run ship</span>
         <span class="cursor"></span>
     </div>
 
@@ -644,6 +706,26 @@
             The Makefile for the <span class="kw">AI &amp; vibe coding</span> era.<br>
             Declare what you want. Let the machine figure out how.
         </p>
+        <div class="hero-cta">
+            <a href="/idea.html" class="btn btn-primary">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/>
+                </svg>
+                read the idea
+            </a>
+            <a href="https://discord.gg/3TsMMvK8tV" class="btn btn-discord">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057c.003.027.015.054.03.07a19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028c.462-.63.874-1.295 1.226-1.994a.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03z"/>
+                </svg>
+                join discord
+            </a>
+            <a href="https://github.com/vibefile-dev" class="btn btn-secondary">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/>
+                </svg>
+                github
+            </a>
+        </div>
     </section>
 
     <!-- QUOTE -->
@@ -691,29 +773,28 @@
         </div>
 
         <div>
-            <div class="file-label"><span class="pill pill-new">AFTER</span> vibefile.yaml</div>
+            <div class="file-label"><span class="pill pill-new">AFTER</span> Vibefile</div>
             <div class="code-card">
                 <div class="code-titlebar">
                     <div class="dot dot-r"></div>
                     <div class="dot dot-y"></div>
                     <div class="dot dot-g"></div>
-                    <span class="code-fname">vibefile<span class="ext">.yaml</span></span>
+                    <span class="code-fname">Vibe<span class="ext">file</span></span>
                 </div>
                 <pre><span class="cm"># plain intent. AI figures out the rest.</span>
-<span class="ck">project:</span> <span class="cs">my saas app</span>
 
-<span class="ck">tasks:</span>
-  <span class="cv">build:</span>
-    <span class="ck">do:</span> <span class="cs">compile and bundle for production</span>
+<span class="cv">seed</span>: build
+    <span class="cs">"populate db with realistic fake data for 10 users"</span>
 
-  <span class="cv">seed:</span>
-    <span class="ck">do:</span> <span class="cs">populate db with realistic</span>
-        <span class="cs">fake data for 10 users</span>
-    <span class="ck">after:</span> <span class="cs">build</span>
+<span class="cv">ship</span>: test build
+    <span class="cs">"test, build, and deploy to fly.io"</span>
+    <span class="cx">@require</span> <span class="cn">clean tests</span>
 
-  <span class="cv">ship:</span>
-    <span class="ck">do:</span> <span class="cs">test, build, deploy to fly.io</span>
-    <span class="ck">requires:</span> <span class="cs">clean tests</span></pre>
+<span class="cv">test</span>:
+    <span class="cs">"run the full test suite and surface failures"</span>
+
+<span class="cv">build</span>:
+    <span class="cs">"compile and bundle for production"</span></pre>
             </div>
         </div>
     </section>
@@ -727,7 +808,7 @@
             <div class="pillar-idx">fn::intent()</div>
             <h3>Declare what, not how</h3>
             <p>Describe tasks in plain language. The AI reads your repo and figures out the implementation — your
-                vibefile never goes stale.</p>
+                Vibefile never goes stale.</p>
         </div>
         <div class="pillar">
             <div class="pillar-idx">fn::deps()</div>
@@ -738,7 +819,7 @@
         <div class="pillar">
             <div class="pillar-idx">fn::docs()</div>
             <h3>Self-documenting by default</h3>
-            <p>Your vibefile <em>is</em> your project's runbook. New teammates run <code
+            <p>Your Vibefile <em>is</em> your project's runbook. New teammates run <code
                     style="color:var(--accent)">vibe run</code> and understand everything instantly.</p>
         </div>
     </section>
@@ -749,6 +830,16 @@
             <span class="name">vibefile</span><span>.dev</span>
             <span>·</span>
             <span>a spec for the AI-assisted dev era</span>
+        </div>
+        <div class="f-right">
+            <a href="/idea.html">~/idea</a>
+            <a href="https://github.com/vibefile-dev">~/github</a>
+            <a href="https://discord.gg/3TsMMvK8tV" class="f-discord">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057c.003.027.015.054.03.07a19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028c.462-.63.874-1.295 1.226-1.994a.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03z"/>
+                </svg>
+                ~/discord
+            </a>
         </div>
     </footer>
 
