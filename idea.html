@@ -129,6 +129,8 @@
     nav a:last-child  { border-right: 1px solid var(--border); }
     nav a:hover       { color: var(--accent); background: var(--accent-dim); }
     nav a.active      { color: var(--accent); background: var(--accent-dim); }
+    nav a.discord     { color: #7289da; display: flex; align-items: center; gap: 6px; }
+    nav a.discord:hover { color: #8fa4f3; background: rgba(114,137,218,0.1); }
 
     /* ── BREADCRUMB ── */
     .breadcrumb {
@@ -447,81 +449,6 @@
       font-weight: 300;
     }
 
-    /* ── ROADMAP ── */
-    .roadmap {
-      margin: 28px 0;
-      display: flex;
-      flex-direction: column;
-      gap: 1px;
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      overflow: hidden;
-    }
-
-    .roadmap-item {
-      display: grid;
-      grid-template-columns: 120px 1fr;
-      background: var(--surface);
-      border-bottom: 1px solid var(--border);
-    }
-
-    .roadmap-item:last-child { border-bottom: none; }
-
-    .rm-phase {
-      padding: 18px 20px;
-      border-right: 1px solid var(--border);
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      gap: 4px;
-    }
-
-    .rm-phase .phase-num {
-      font-size: 0.6rem;
-      letter-spacing: 0.1em;
-      color: var(--muted);
-    }
-
-    .rm-phase .phase-name {
-      font-size: 0.75rem;
-      font-weight: 700;
-      letter-spacing: -0.01em;
-    }
-
-    .rm-phase.active .phase-name  { color: var(--accent); }
-    .rm-phase.soon   .phase-name  { color: var(--accent2); }
-    .rm-phase.later  .phase-name  { color: var(--muted); }
-
-    .rm-content {
-      padding: 18px 22px;
-    }
-
-    .rm-content ul {
-      list-style: none;
-      display: flex;
-      flex-direction: column;
-      gap: 6px;
-    }
-
-    .rm-content li {
-      font-size: 0.78rem;
-      color: var(--text2);
-      font-family: 'Fragment Mono', monospace;
-      font-weight: 300;
-      display: flex;
-      align-items: baseline;
-      gap: 10px;
-    }
-
-    .rm-content li::before {
-      content: '→';
-      color: var(--muted);
-      font-size: 0.7rem;
-      flex-shrink: 0;
-    }
-
-    .rm-phase.active ~ .rm-content li::before { color: var(--accent); }
-
     /* ── CTA ── */
     .cta-section {
       margin: 56px 0 80px;
@@ -627,7 +554,8 @@
     .section:nth-child(3) { animation-delay: 0.15s; }
     .section:nth-child(4) { animation-delay: 0.20s; }
     .section:nth-child(5) { animation-delay: 0.25s; }
-    .section:nth-child(6) { animation-delay: 0.30s; }
+    .section:nth-child(6) { animation-delay: 0.28s; }
+    .section:nth-child(7) { animation-delay: 0.30s; }
 
     /* ── RESPONSIVE ── */
     @media (max-width: 768px) {
@@ -640,7 +568,6 @@
       .cta-section   { flex-direction: column; align-items: flex-start; }
       .cta-buttons   { width: 100%; flex-direction: column; }
       .btn           { justify-content: center; }
-      .roadmap-item  { grid-template-columns: 90px 1fr; }
     }
   </style>
 </head>
@@ -656,9 +583,12 @@
       </a>
     </div>
     <nav>
-      <a href="https://github.com/vibefile-dev">~/docs</a>
-      <a href="https://github.com/vibefile-dev">~/github</a>
       <a href="/idea.html" class="active">~/idea</a>
+      <a href="https://github.com/vibefile-dev">~/github</a>
+      <a href="https://discord.gg/3TsMMvK8tV" class="discord">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057c.003.027.015.054.03.07a19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028c.462-.63.874-1.295 1.226-1.994a.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03z"/></svg>
+        ~/discord
+      </a>
     </nav>
   </header>
 
@@ -870,9 +800,154 @@
       </div>
     </section>
 
-    <!-- SECTION 5: CONTEXT COLLECTOR -->
+    <!-- SECTION 5: SKILLS -->
     <section class="section">
-      <div class="section-label">05 // THE HARD PART</div>
+      <div class="section-label">05 // SKILLS</div>
+      <h2>Reusable task instructions <span class="hl">anyone can share</span></h2>
+
+      <p class="prose">
+        Some workflows are solved problems. Deploying a Python package to PyPI,
+        running a Django migration, publishing a Docker image — the intent is always
+        the same, only the repo details change. A Skill is a directory containing
+        a <code>SKILL.md</code> file: structured instructions that tell the AI
+        exactly how to execute a class of task.
+      </p>
+
+      <p class="prose">
+        When a Vibefile target declares <code>skill:</code>, the CLI loads that
+        <code>SKILL.md</code> and uses it as the instruction set for the LLM call —
+        instead of sending a plain prompt you wrote. The skill author has already done
+        the prompt engineering. You just reference the skill by name.
+      </p>
+
+      <div class="code-card">
+        <div class="code-titlebar">
+          <div class="dot dot-r"></div>
+          <div class="dot dot-y"></div>
+          <div class="dot dot-g"></div>
+          <span class="code-fname">Vibe<span class="ext">file</span></span>
+        </div>
+        <pre><span class="cm"># use a skill instead of writing a prompt</span>
+<span class="cv">test</span>:
+    <span class="ck">skill:</span> <span class="cn">python-test</span>
+
+<span class="cv">deploy</span>: test build
+    <span class="ck">skill:</span> <span class="cn">fly-deploy</span>
+    <span class="cx">@mcp</span>   <span class="cn">fly-mcp</span>
+
+<span class="cm"># mix a skill with extra instructions for this repo</span>
+<span class="cv">release</span>: test
+    <span class="ck">skill:</span> <span class="cn">python-publish</span>
+    <span class="cs">"also update the changelog and tag the commit"</span></pre>
+      </div>
+
+      <div class="code-card">
+        <div class="code-titlebar">
+          <div class="dot dot-r"></div>
+          <div class="dot dot-y"></div>
+          <div class="dot dot-g"></div>
+          <span class="code-fname">skills/python-test/<span class="ext">SKILL.md</span></span>
+        </div>
+        <pre><span class="cm">---
+name: python-test
+description: Run a Python test suite with pytest, surface failures,
+             and report coverage. Use for any Python project with tests.
+---</span>
+
+<span class="cn">1. Detect the test runner (pytest, unittest) from pyproject.toml</span>
+<span class="cn">2. Run tests with coverage enabled</span>
+<span class="cn">3. Surface failures with file + line context</span>
+<span class="cn">4. Exit non-zero if any tests fail</span></pre>
+      </div>
+
+      <p class="prose">
+        Skills are resolved in order: a <code>skills/</code> folder in the repo
+        (project-specific), then <code>~/.vibe/skills/</code> (your personal library),
+        then a community registry at <code>vibefile.dev/skills</code>. A skill is just
+        a directory — readable, forkable, and improvable by anyone.
+      </p>
+
+      <div class="callout pink">
+        <div class="callout-label"><span class="sym">/**</span> the compounding effect</div>
+        <p>Every team that figures out "how do we deploy a Next.js app to Fly.io" can
+        publish that as a skill. The next team skips the prompt engineering entirely.
+        Skills get better as more people use and improve them.</p>
+      </div>
+    </section>
+
+    <!-- SECTION 6: MODEL + API KEY -->
+    <section class="section">
+      <div class="section-label">06 // MODEL & API KEY</div>
+      <h2>Bring your own <span class="hl">model</span></h2>
+
+      <p class="prose">
+        Vibefile is model-agnostic. You declare which model to use in the Vibefile itself —
+        it's not a secret, so it belongs in the file alongside the tasks. The API key
+        is a different story: that never goes in the Vibefile, which lives in git.
+      </p>
+
+      <div class="code-card">
+        <div class="code-titlebar">
+          <div class="dot dot-r"></div>
+          <div class="dot dot-y"></div>
+          <div class="dot dot-g"></div>
+          <span class="code-fname">Vibe<span class="ext">file</span></span>
+        </div>
+        <pre><span class="cm"># declare the model in the Vibefile — it's not a secret</span>
+<span class="ck">model</span>:   <span class="cs">claude-sonnet-4-6</span>
+<span class="ck">project</span>: my-saas-app
+
+<span class="cv">ship</span>: test build
+    <span class="cs">"deploy to production on fly.io"</span></pre>
+      </div>
+
+      <p class="prose">
+        The API key is resolved from the environment, in this order: the
+        <code>VIBE_API_KEY</code> env var, then the provider-specific key
+        (<code>ANTHROPIC_API_KEY</code>, <code>OPENAI_API_KEY</code>, etc.) inferred
+        from the model name, then a <code>~/.vibeconfig</code> global file.
+        The Vibefile itself never touches a key.
+      </p>
+
+      <div class="code-card">
+        <div class="code-titlebar">
+          <div class="dot dot-r"></div>
+          <div class="dot dot-y"></div>
+          <div class="dot dot-g"></div>
+          <span class="code-fname">~/.vibe<span class="ext">config</span></span>
+        </div>
+        <pre><span class="cm"># global config — never committed</span>
+<span class="ck">default_model</span>: <span class="cs">claude-sonnet-4-6</span>
+<span class="ck">anthropic_key</span>: <span class="cs">sk-ant-...</span>
+<span class="ck">openai_key</span>:    <span class="cs">sk-...</span></pre>
+      </div>
+
+      <p class="prose">
+        Resolution order for everything is: CLI flag → env var → Vibefile → <code>~/.vibeconfig</code> → built-in default.
+        This means you can always override at runtime without touching the file —
+        useful for CI, where you'd set <code>ANTHROPIC_API_KEY</code> as a secret
+        and let the Vibefile's declared model do the rest.
+      </p>
+
+      <div class="insight-row">
+        <div class="insight-card">
+          <div class="ic-label">// in CI</div>
+          <h4>Works exactly like you'd expect</h4>
+          <p>Set <code>ANTHROPIC_API_KEY</code> as a repo secret. The Vibefile's
+          declared model is picked up automatically. No extra config needed.</p>
+        </div>
+        <div class="insight-card">
+          <div class="ic-label">// per-task override</div>
+          <h4>Different tasks, different models</h4>
+          <p>A cheap fast model for codegen tasks. A more capable model for complex
+          agentic tasks. Each target can declare its own <code>model:</code> override.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 7: CONTEXT COLLECTOR -->
+    <section class="section">
+      <div class="section-label">07 // THE HARD PART</div>
       <h2>The <span class="hl">context collector</span> is the product</h2>
 
       <p class="prose">
@@ -917,57 +992,6 @@
       </p>
     </section>
 
-    <!-- SECTION 6: ROADMAP -->
-    <section class="section">
-      <div class="section-label">06 // ROADMAP</div>
-      <h2>What we're <span class="hl">building</span></h2>
-
-      <div class="roadmap">
-        <div class="roadmap-item">
-          <div class="rm-phase active">
-            <div class="phase-num">PHASE 01</div>
-            <div class="phase-name">MVP CLI</div>
-          </div>
-          <div class="rm-content">
-            <ul>
-              <li>Vibefile parser (Makefile-style syntax)</li>
-              <li>Smart repo context collector</li>
-              <li>LLM → shell codegen with live stdout streaming</li>
-              <li><code>vibe run &lt;target&gt;</code>, <code>vibe list</code></li>
-            </ul>
-          </div>
-        </div>
-        <div class="roadmap-item">
-          <div class="rm-phase soon">
-            <div class="phase-num">PHASE 02</div>
-            <div class="phase-name">MCP + Agent</div>
-          </div>
-          <div class="rm-content">
-            <ul>
-              <li><code>@mcp</code> directive — agentic task execution</li>
-              <li>First-party connectors: fly-mcp, github-mcp, postgres-mcp</li>
-              <li>Approval gate before destructive operations</li>
-              <li>Execution transcript for debugging</li>
-            </ul>
-          </div>
-        </div>
-        <div class="roadmap-item">
-          <div class="rm-phase later">
-            <div class="phase-num">PHASE 03</div>
-            <div class="phase-name">Skills</div>
-          </div>
-          <div class="rm-content">
-            <ul>
-              <li><code>skill:</code> directive — community task templates</li>
-              <li>Skills registry at vibefile.dev/skills</li>
-              <li>Local skill authoring and sharing</li>
-              <li>Editor extension with task previews</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </section>
-
     <!-- CTA -->
     <div class="cta-section">
       <div class="cta-left">
@@ -978,7 +1002,7 @@
         </p>
       </div>
       <div class="cta-buttons">
-        <a href="https://discord.gg/vibefile" class="btn btn-primary">
+        <a href="https://discord.gg/3TsMMvK8tV" class="btn btn-primary">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
             <path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057c.003.027.015.054.03.07a19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028c.462-.63.874-1.295 1.226-1.994a.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03z"/>
           </svg>
