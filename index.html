@@ -622,6 +622,52 @@
             color: #8fa4f3;
         }
 
+
+        /* ── RELEASE BANNER ── */
+        .release-banner {
+            position: relative;
+            z-index: 10;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            padding: 10px 48px;
+            background: linear-gradient(90deg, rgba(184, 255, 87, 0.06) 0%, rgba(87, 212, 255, 0.06) 100%);
+            border-bottom: 1px solid var(--border);
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.74rem;
+            animation: fade-up 0.5s ease both;
+        }
+
+        .release-banner .release-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 3px 10px;
+            background: var(--accent-dim);
+            border: 1px solid rgba(184, 255, 87, 0.25);
+            border-radius: 4px;
+            color: var(--accent);
+            font-weight: 700;
+            font-size: 0.68rem;
+            letter-spacing: 0.04em;
+        }
+
+        .release-banner .release-text {
+            color: var(--text2);
+        }
+
+        .release-banner a {
+            color: var(--accent);
+            text-decoration: none;
+            border-bottom: 1px solid rgba(184, 255, 87, 0.3);
+            transition: border-color 0.15s;
+        }
+
+        .release-banner a:hover {
+            border-color: var(--accent);
+        }
+
         /* ── ANIMATIONS ── */
         @keyframes fade-up {
             from { opacity: 0; transform: translateY(16px); }
@@ -636,12 +682,14 @@
             .quote-section,
             .section-header,
             .code-section,
+
             footer {
                 padding-left: 20px;
                 padding-right: 20px;
             }
 
-            .breadcrumb {
+            .breadcrumb,
+            .release-banner {
                 padding-left: 20px;
                 padding-right: 20px;
             }
@@ -675,7 +723,7 @@
             <span class="name">vibefile</span><span class="ext">.dev</span>
         </div>
         <nav>
-            <a href="idea.html">~/idea</a>
+            <a href="https://docs.vibefile.dev">~/docs</a>
             <a href="https://github.com/vibefile-dev">~/github</a>
             <a href="https://discord.gg/3TsMMvK8tV" class="discord">
                 <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor">
@@ -693,6 +741,16 @@
         <span class="cursor"></span>
     </div>
 
+    <!-- RELEASE BANNER -->
+    <div class="release-banner">
+        <span class="release-tag">
+            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7"/></svg>
+            v0.0.1
+        </span>
+        <span class="release-text">First release is out —</span>
+        <a href="https://github.com/vibefile-dev/vibe/releases/tag/v0.0.1">try it now</a>
+    </div>
+
     <!-- HERO -->
     <section class="hero">
         <div class="hero-comment">// the task runner for humans who think in plain english</div>
@@ -707,11 +765,11 @@
             Declare what you want. Let the machine figure out how.
         </p>
         <div class="hero-cta">
-            <a href="/idea.html" class="btn btn-primary">
+            <a href="https://docs.vibefile.dev" class="btn btn-primary">
                 <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/>
+                    <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>
                 </svg>
-                read the idea
+                read the docs
             </a>
             <a href="https://discord.gg/3TsMMvK8tV" class="btn btn-discord">
                 <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor">
@@ -727,6 +785,7 @@
             </a>
         </div>
     </section>
+
 
     <!-- QUOTE -->
     <section class="quote-section">
@@ -832,7 +891,7 @@
             <span>a spec for the AI-assisted dev era</span>
         </div>
         <div class="f-right">
-            <a href="/idea.html">~/idea</a>
+            <a href="https://docs.vibefile.dev">~/docs</a>
             <a href="https://github.com/vibefile-dev">~/github</a>
             <a href="https://discord.gg/3TsMMvK8tV" class="f-discord">
                 <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
